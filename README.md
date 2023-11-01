@@ -10,6 +10,10 @@ Demo: https://thesis.laszlokorte.de
 
 `docker run -it -v [Path to Repo]:/digital-grading-tools/ -p 3000:3000 node:16.20.2-buster /bin/bash`
 
+If you launch docker from the digital-grading-tools folder using PowerShell you can just map the current directory as the volume.
+
+`docker run -it -v ${PWD}:/digital-grading-tools/ -p 3000:3000 node:16.20.1-buster /bin/bash`
+
 Then `cd /digital-grading-tools/` and follow the rest of the instructions below.
 
 ### Installing Locally
