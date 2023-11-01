@@ -22,7 +22,7 @@ First you need to make sure you have installed `node`(v5.1.0) and `npm`(3.5.0) o
 
 `node` can be downloaded at https://nodejs.org/en/ `npm` is included.
 
-Then just run:
+Then just go to /digital-grading-tools/ and run:
 
 ```shell
 $ npm install
