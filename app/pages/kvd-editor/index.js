@@ -10,8 +10,8 @@ import {autoResizeDriver} from '../../drivers/textarea-resize';
 import {insertStringDriver} from '../../drivers/rangy';
 
 import kv from '../../components/kv';
-import pla from '../../components/pla';
-import splitPane from '../../components/splitpane';
+// import pla from '../../components/pla';
+// import splitPane from '../../components/splitpane';
 
 /*
   This file is the entry point for the application
@@ -32,31 +32,31 @@ const kvdApp = (sources) => {
   });
 
   // initialize the PLA component
-  const plaComponent = isolate(pla, 'pla-viewer')({
-    DOM,
-    globalEvents,
-    data$: kvComponent.plaData$.take(1).merge(
-      kvComponent.plaData$.skip(1).debounce(100)
-    ).share(),
-    props$: O.just({}),
-  });
+  // const plaComponent = isolate(pla, 'pla-viewer')({
+  //   DOM,
+  //   globalEvents,
+  //   data$: kvComponent.plaData$.take(1).merge(
+  //     kvComponent.plaData$.skip(1).debounce(100)
+  //   ).share(),
+  //   props$: O.just({}),
+  // });
 
   // The split component to display the left and right
   // side next to each other
-  const splitComponent = isolate(splitPane, 'splitpane')({
-    DOM,
-    globalEvents,
-    props$: O.just({proportion: 0.65}),
-    firstChild$: kvComponent.DOM,
-    secondChild$: plaComponent.DOM,
-  });
+  // const splitComponent = isolate(splitPane, 'splitpane')({
+  //   DOM,
+  //   globalEvents,
+  //   props$: O.just({proportion: 0.65}),
+  //   firstChild$: kvComponent.DOM,
+  //   secondChild$: plaComponent.DOM,
+  // });
 
   return {
-    DOM: splitComponent.DOM,
+    DOM: kvComponent.DOM,
     preventDefault: O.merge([
       kvComponent.preventDefault,
-      plaComponent.preventDefault,
-      splitComponent.preventDefault,
+      // plaComponent.preventDefault,
+      // splitComponent.preventDefault,
     ]),
     selectAll: O.merge([
       kvComponent.selectAll,
